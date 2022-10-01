@@ -8,7 +8,7 @@ import org.postgresql.ds.PGSimpleDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
-import org.testcontainers.containers.YugabyteDBContainer;
+import org.testcontainers.containers.YugabyteYSQLContainer;
 
 import com.yugabyte.ysql.YBClusterAwareDataSource;
 
@@ -16,12 +16,12 @@ import com.yugabyte.ysql.YBClusterAwareDataSource;
 public class YugbayteDataSourceConfiguration {
 	
 	private static final Logger LOG = LoggerFactory.getLogger(YugbayteDataSourceConfiguration.class);
-	private static YugabyteDBContainer YUGABYTE_CONTAINER;
+	private static YugabyteYSQLContainer YUGABYTE_CONTAINER;
 	
 	protected DataSource createDataSource() {
 		
 		if (YUGABYTE_CONTAINER == null) {
-			YugabyteDBContainer yugabyteDBContainer = new YugabyteDBContainer(YUGABYTEDB_IMAGE);
+			YugabyteYSQLContainer yugabyteDBContainer = new YugabyteYSQLContainer(YUGABYTEDB_IMAGE);
 			yugabyteDBContainer.start();
 			YUGABYTE_CONTAINER = yugabyteDBContainer;
 			LOG.info("Initialized YugabyteDB Test Container.");
@@ -40,7 +40,7 @@ public class YugbayteDataSourceConfiguration {
 	protected DataSource createClusterAwareDataSource() {
 		
 		if (YUGABYTE_CONTAINER == null) {
-			YugabyteDBContainer yugabyteDBContainer = new YugabyteDBContainer(YUGABYTEDB_IMAGE);
+			YugabyteYSQLContainer yugabyteDBContainer = new YugabyteYSQLContainer(YUGABYTEDB_IMAGE);
 			yugabyteDBContainer.start();
 			YUGABYTE_CONTAINER = yugabyteDBContainer;
 		}
