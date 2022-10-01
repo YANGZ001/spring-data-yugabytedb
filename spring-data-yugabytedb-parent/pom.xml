@@ -44,7 +44,7 @@
 		<springdata.jdbc>2.2.3</springdata.jdbc>
 		<springdata.relational>2.2.3</springdata.relational>
 		<postgresql.version>42.2.19</postgresql.version>
-		<yugabyte.testcontainer.version>1.0.0-beta.1</yugabyte.testcontainer.version>
+<!--		<yugabyte.testcontainer.version>1.0.0-beta.1</yugabyte.testcontainer.version>-->
 		<mockito.version>3.8.0</mockito.version>
 		<awaitility.version>4.0.3</awaitility.version>
 		<yugabyte.driver.version>42.2.7-yb-5-beta.5</yugabyte.driver.version>
@@ -83,11 +83,18 @@
 			<artifactId>spring-beans</artifactId>
 		</dependency>
 
+<!--		<dependency>-->
+<!--			<groupId>com.yugabyte</groupId>-->
+<!--			<artifactId>testcontainer</artifactId>-->
+<!--			<version>${yugabyte.testcontainer.version}</version>-->
+<!--			<scope>test</scope>-->
+<!--		</dependency>-->
+
+		<!-- https://mavenlibs.com/maven/dependency/com.yugabyte/testcontainers-yugabytedb -->
 		<dependency>
 			<groupId>com.yugabyte</groupId>
-			<artifactId>testcontainer</artifactId>
-			<version>${yugabyte.testcontainer.version}</version>
-			<scope>test</scope>
+			<artifactId>testcontainers-yugabytedb</artifactId>
+			<version>1.0.0-beta-3</version>
 		</dependency>
 
 		<dependency>
